@@ -12,7 +12,7 @@ dotenv.config({ path: './config/.env' });
 const app = express();
 
 // connect to database
-// connectDB();
+connectDB();
 
 
 // Dev logging middleware
