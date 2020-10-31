@@ -4,10 +4,10 @@ import { config } from 'dotenv';
 config();
 
 // Option 1: Passing a connection URI
-const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
-    host: process.env.DBHOST,
+const sequelize = new Sequelize("postgres://postgres:Mummytola123\\@localhost/Restaurant", {
+    // host: process.env.DBHOST,
     dialect: 'postgres',
-    logging: false,
+    // logging: false,
 });
 
 const connectDB = async () => {

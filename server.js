@@ -12,7 +12,7 @@ dotenv.config({ path: './config/.env' });
 const app = express();
 
 // connect to database
-// connectDB();
+connectDB();
 
 
 // Dev logging middleware
@@ -37,13 +37,12 @@ const PORT = process.env.DB_PORT || 4000;
 
 
 app.listen( 4000,  
-    console.log('Server running')
-    // console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
+    console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
 )
 
 // Handle unhandled promise rejections
-// process.on('unhandledRejection', (err, promise) => {
-//     console.log(`Error: ${err.message}`.red);
-//     // Close server & exit process
-//     server.close(() => process.exit(1));
-// });
+process.on('unhandledRejection', (err, promise) => {
+    console.log(`Error: ${err.message}`.red);
+    // Close server & exit process
+    server.close(() => process.exit(1));
+});
